@@ -1,0 +1,65 @@
+{
+    "projects": [
+        {
+            "id": 0,
+            "name": "Serbius Submissions",
+            "company": "Serbius",
+            "stack": "MERN Full-Stack",
+            "position": "Full-Stack Developer",
+            "date": "July 2024 - Present",
+            "desc": "As the ony developer, I was tasked with developing a dynamic and responsive web applications using the MERN stack (MongoDB, Express.js, React, Node.js). I got to flex my skills in building RESTful APIs, implementing secure user authentication, managing MongoDB databases, and creating visually appealing interfaces with Tailwind CSS. Skilled in state management with Context API, integrating third-party APIs, and ensuring code quality through testing and version control. Strong collaborator with a focus on delivering high-quality, user-centric solutions.",
+            "lang": ["react", "tailwindcss", "mongodb", "nodejs", "expressjs", "api", "json"],
+            "link": ""
+        },
+
+        {
+            "id": 1,
+            "name": "Minetech",
+            "company": "CTL Australia",
+            "stack": "REACT and TailwindCSS",
+            "position": "Front-End Developer",
+            "date": "May 2024",
+            "desc": "I was tasked with designing and developing an eCommerce website that handled and displayed JSON data. This website incorporated a cart system, which took in the price of each selected items. This website was responsive, utilising TailwindCSS.",
+            "lang": ["react", "tailwindcss", "json", "api"],
+            "link": ""
+        },
+
+        {
+            "id": 2,
+            "name": "Autism and Mental Health",
+            "company": "Curtin University",
+            "stack": "HTML, CSS, JS",
+            "position": "Digital Designer",
+            "date": "March 2023 - August 2023",
+            "desc": "Over the course of several months, I meticulously crafted an online course from provided content, utilizing HTML, CSS, and JavaScript to develop an engaging interface. This comprehensive effort paid off when the course received an award, recognizing its excellence in design, content, and interactivity.",
+            "lang": ["html", "css", "js"],
+            "link": "https://www.edx.org/learn/mental-health/curtin-university-autism-and-mental-health?irgwc=1"
+        },
+
+        {
+            "id": 3,
+            "name": "Curtin Gradshow 2022",
+            "company": "Curtin University",
+            "stack": "Back-End",
+            "position": "Back-End Team Lead",
+            "date": "August 2022 - November 2022",
+            "desc": "As the team lead for a small backend team, I spearheaded the development process, contributing approximately 70% of the backend code myself. Leveraging NodeJS, MongoDB, and AWS S3 buckets for image storage, I crafted a robust backend infrastructure for the website. Additionally, I dedicated extensive hours to supporting both my team and others during the final stages of production, ensuring a successful project completion.",
+            "lang": ["nodejs", "mongodb", "aws", "expressjs"],
+            "link": "https://2022.curtindesign.com/"
+        },
+
+        {
+            "id": 4,
+            "name": "Sprout",
+            "company": "Curtin University",
+            "stack": "Back-End",
+            "position": "Full-Stack Developer",
+            "date": "August 2021 - November 2021",
+            "desc": "During my third year of university, a team member and I was tasked with creating a mental health app that encouraged the user to do chores in order to grow their little plant.",
+            "lang": ["nodejs", "mongodb", "html", "expressjs", "css", "js"],
+            "link": ""
+        }
+    ]
+
+    
+}

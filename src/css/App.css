@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LandingPage.css or your main CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+HR:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.cursive {
+  font-family: "Playwrite HR", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 200;
+}
+
+.cursive-bold {
+  font-family: "Playwrite HR", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.roboto{
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.roboto-reg{
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-bold{
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: bold;
+}
+/* LandingPage.css */
+
+.parent-div {
+  position: relative;
+ 
+  overflow: hidden; /* Ensures the moving div doesn't go outside the parent */
+}
+
+.moving-div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  /* Animation */
+  animation: moveLeftToRight 15s linear infinite;
+}
+
+@keyframes moveLeftToRight {
+  0% {
+    transform: translateX(-100px); /* Start just off-screen to the left */
+  }
+  100% {
+    transform: translateX(calc(100% + 1526px)); /* Move to just off-screen to the right */
+  }
+}
+
+
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle 2s infinite alternate;
+}
+
+.star::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, white, transparent);
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@media (max-width: 600px) {
+  .star {
+    width: 1px;
+    height: 1px;
+  }
+
+  .project{
+    text-align: center !important;
+  }
+
+  .moving-div {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    /* Animation */
+    animation: moveLeftToRight 10s linear infinite;
+  }
+
+  
+  
+  @keyframes moveLeftToRight {
+    0% {
+      transform: translateX(-100px); /* Start just off-screen to the left */
+    }
+    100% {
+      transform: translateX(calc(100% + 600px)); /* Move to just off-screen to the right */
+    }
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.background {
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+}
+
+/* Project ____________________________________ */
+
+.project{
+  display: flex;
+  min-width: full;
+  justify-content: start;
+  gap: 10;
+  text-align: start;
+
+}
+
+.project h1  {
+  font-family: "Roboto", sans-serif;
+  font-weight: 250;
+  font-style: normal;
+  color: white;
+}
+
+.project h1 b {
+  font-family: "Playwrite HR", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  color: white;
+}
+
+.project:nth-child(2n) {
+  display: flex;
+  min-width: full;
+  justify-content: end;
+  text-align: end;
+}
