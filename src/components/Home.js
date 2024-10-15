@@ -104,9 +104,9 @@ export default function Home() {
 
                     <div className=" container justify-center text-center  flex w-full  ">
                         <div className="md:w-3/4 sm:w-full bg-slate-200 p-5 py-10 gap-2 container flex flex-col shadow-2xl shadow-gray-900  ">
-                            <h1 className="text-4xl cursive-bold py-3">Hello, I'm Ashleigh</h1>
-                            <p className="roboto-reg text-lg ">As a designer and developer, I am passionate about <b className="roboto-bold text-pink-800 text-xl">merging creativity </b>  with <b className="roboto-bold text-xl text-pink-800 ">technical precision</b>, crafting experiences that are both visually stunning and functionally robust. With a deep appreciation for elegant design and efficient code, I work tirelessly to create seamless,<b className="roboto-bold text-xl text-pink-800 "> user-friendly web applications.</b>  My journey is fueled by a love for innovation and a penchant for solving complex problems. </p>
-                            <p className="roboto-reg text-lg "> I'm Ashleigh Sayers, a developer with an artist's soul, always striving to bring a <b className="roboto-bold text-pink-800 text-xl">touch of the extraordinary to the digital world.</b></p>
+                            <h1 className="md:text-4xl sm:text-2xl cursive-bold py-3">Hello, I'm Ashleigh</h1>
+                            <p className="roboto-reg md:text-lg sm:text-md">As a designer and developer, I am passionate about <b className="roboto-bold text-pink-800 text-xl">merging creativity </b>  with <b className="roboto-bold text-xl text-pink-800 ">technical precision</b>, crafting experiences that are both visually stunning and functionally robust. With a deep appreciation for elegant design and efficient code, I work tirelessly to create seamless,<b className="roboto-bold text-xl text-pink-800 "> user-friendly web applications.</b>  My journey is fueled by a love for innovation and a penchant for solving complex problems. </p>
+                            <p className="roboto-reg md:text-lg sm:text-md"> I'm Ashleigh Sayers, a developer with an artist's soul, always striving to bring a <b className="roboto-bold text-pink-800 text-xl">touch of the extraordinary to the digital world.</b></p>
                         </div>
                     </div>
 
@@ -208,7 +208,9 @@ export default function Home() {
                         </div>
                     </div>
                     
-                    
+                    <div>
+                        <p className="text-center text-white py-5">Copyright © 2024 ARSayers. V1</p>
+                    </div>
                 </div>
 
                 

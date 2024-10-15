@@ -7,7 +7,7 @@
             "stack": "MERN Full-Stack",
             "position": "Full-Stack Developer",
             "date": "July 2024 - Present",
-            "desc": "As the ony developer, I was tasked with developing a dynamic and responsive web applications using the MERN stack (MongoDB, Express.js, React, Node.js). I got to flex my skills in building RESTful APIs, implementing secure user authentication, managing MongoDB databases, and creating visually appealing interfaces with Tailwind CSS. Skilled in state management with Context API, integrating third-party APIs, and ensuring code quality through testing and version control. Strong collaborator with a focus on delivering high-quality, user-centric solutions.",
+            "desc": "As the only developer, I was tasked with developing a dynamic and responsive web applications using the MERN stack (MongoDB, Express.js, React, Node.js). I got to flex my skills in building RESTful APIs, implementing secure user authentication, managing MongoDB databases, and creating visually appealing interfaces with Tailwind CSS. Skilled in state management with Context API, integrating third-party APIs, and ensuring code quality through testing and version control. Strong collaborator with a focus on delivering high-quality, user-centric solutions.",
             "lang": ["react", "tailwindcss", "mongodb", "nodejs", "expressjs", "api", "json"],
             "link": ""
         },
@@ -55,7 +55,7 @@
             "stack": "Back-End",
             "position": "Full-Stack Developer",
             "date": "August 2021 - November 2021",
-            "desc": "During my third year of university, a team member and I was tasked with creating a mental health app that encouraged the user to do chores in order to grow their little plant.",
+            "desc": "During my third year of university, a team member and I were tasked with creating a mental health app that encouraged the user to do chores in order to grow their little plant.",
             "lang": ["nodejs", "mongodb", "html", "expressjs", "css", "js"],
             "link": ""
         }
