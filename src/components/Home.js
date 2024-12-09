@@ -12,13 +12,20 @@ import rest from "../img/rest.svg"
 import aws from "../img/aws.svg"
 import json from "../img/json.svg"
 import emailjs from "emailjs-com";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import gradshow from '../img/gradshow.png'
 
+import serbius from "../img/serbius.png"
 
+  
 
 
 
 export default function Home() {
     const [projects, setProjects] = useState([]);
+    const [selected, setSelected] = useState(false);
+    const [selectedProject, setSelectedProject] = useState([]);
+
 
     const fetchProjects = () => {
     fetch('/data.json')
@@ -75,6 +82,34 @@ export default function Home() {
         }
     };
 
+    const langImages = {
+        nodejs: node,
+        mongodb: mongo,
+        html,
+        expressjs: express,
+        css,
+        js,
+        react,
+        api: rest,
+        json,
+        tailwindcss: tailwind,
+        aws
+      };
+
+    const companies = {
+        serbius,
+        curtinGrad: gradshow
+    }
+      
+    
+    const selectiveProject = (project) => {
+        setSelectedProject(project)
+        setSelected(!selected)
+        console.log(selectedProject)
+    }
+
+
+      
     return(
         <div className="h-screen w-screen relative">
             <div className="z-50 relative">
@@ -115,54 +150,17 @@ export default function Home() {
                             <div className="md:w-3/5 sm:w-full container  flex flex-col gap-1"> 
                                 <h1 className="sm:text-lg md:text-2xl"><b className="sm:text-xl md:text-3xl">{project.name}</b> | {project.company}</h1>
                                 <h3 className="md:text-xl sm:text-lg roboto text-white"> {project.position} | {project.date} </h3>
-                                <p className="md:text-lg sm:text-md roboto-reg text-white"> {project.desc} </p>
+                                <p className="md:text-lg sm:text-md roboto-reg text-white inline"> {project.desc} <button onClick={() => selectiveProject(project)} className="text-pink-400 font-bold">...read more</button></p>
 
                                 <div className="container flex md:flex-row sm:flex-col md:justify-between sm:justify-center md:gap-5  mt-3">
                                     <div className="flex container md:justify-normal md:w-1/2 sm:w-full sm:justify-between md:gap-4 ">
 
-                                    {project.lang.includes("html") && (
-                                        <img src={html}  className="w-10 h-10"/>
-                                     )}
+                                    {project.lang.map((language) => (
+                                        <img src={langImages[language]} alt={language} className="w-10 h-10" />
+                                    ))}
 
-                                     {project.lang.includes("css") && (
-                                        <img src={css}  className="w-10 h-10"/>
-                                     )}
 
-                                     {project.lang.includes("js") && (
-                                        <img src={js}  className="w-10 h-10"/>
-                                     )}
-
-                                     {project.lang.includes("react") && (
-                                        <img src={react}  className="w-10 h-10"/>
-                                     )}
-
-                                     {project.lang.includes("tailwindcss") && (
-                                        <img src={tailwind}  className="w-10 h-10"/>
-                                     )}    
-
-                                     {project.lang.includes("nodejs") && (
-                                        <img src={node}  className="w-10 h-10"/>
-                                     )} 
-
-                                     {project.lang.includes("mongodb") && (
-                                        <img src={mongo}  className="w-10 h-10"/>
-                                     )} 
-
-                                     {project.lang.includes("aws") && (
-                                        <img src={aws}  className="w-10 h-10"/>
-                                     )} 
-
-                                     {project.lang.includes("api") && (
-                                        <img src={rest}  className="w-10 h-10"/>
-                                     )}
-
-                                     {project.lang.includes("expressjs") && (
-                                        <img src={express}  className="w-10 h-10"/>
-                                     )}
-
-                                     {project.lang.includes("json") && (
-                                        <img src={json}  className="w-10 h-10"/>
-                                     )}
+                                    
                                     </div>
 
                                     <div className=" md:w-1/4  sm:w-full sm:mt-7">
@@ -209,12 +207,47 @@ export default function Home() {
                     </div>
                     
                     <div>
-                        <p className="text-center text-white py-5">Copyright © 2024 ARSayers. V1</p>
+                        <p className="text-center text-white py-5">Copyright © 2024 ARSayers. v2.0</p>
                     </div>
                 </div>
 
                 
+                {selected && (
+                    <div className="fixed min-w-full min-h-full bg-black bg-opacity-20 top-0 container flex justify-center flex-col items-center">
+                        <div className="bg-white w-3/4 h-1/2  p-2"> 
+                            <div className="grid grid-cols-3"> 
+                                <div className="p-2 col-span-1"> 
+                                    <img src={companies[selectedProject.imgComp]}/>
+                                    
+                                </div>
 
+                                <div className="p-2 col-span-2 "> 
+                                    <div className="flex flex-col justify-between  h-full"> 
+                                        <h1 className="text-2xl font-bold">{selectedProject.name} | <b className="text-pink-500 roboto-bold uppercase">{selectedProject.company}</b></h1>
+                                        <h2 className="text-lg font-medium">{selectedProject.stack} | {selectedProject.position}</h2>
+                                        <p className="font-normal font-md">{selectedProject.summary}</p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div className="p-2 col-span-3 "> 
+                                    <div className="flex flex-col justify-between  h-full"> 
+                                       
+                                        <p className="font-light font-md">{selectedProject.long.map((para) => (
+                                            <p className="py-1 font-normal">{para} </p>
+                                        ))}</p>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+
+                            <button className="text-red-500 font-bold p-2" onClick={() => setSelected(!selected)}>close</button>
+                        </div>
+
+                        
+                    </div>
+                )}
             
         </div>
     )

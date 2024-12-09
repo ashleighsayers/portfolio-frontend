@@ -3,61 +3,102 @@
         {
             "id": 0,
             "name": "Serbius Submissions",
+            "img": "serbius",
             "company": "Serbius",
+            "imgComp": "serbius",
             "stack": "MERN Full-Stack",
             "position": "Full-Stack Developer",
             "date": "July 2024 - Present",
             "desc": "As the only developer, I was tasked with developing a dynamic and responsive web applications using the MERN stack (MongoDB, Express.js, React, Node.js). I got to flex my skills in building RESTful APIs, implementing secure user authentication, managing MongoDB databases, and creating visually appealing interfaces with Tailwind CSS. Skilled in state management with Context API, integrating third-party APIs, and ensuring code quality through testing and version control. Strong collaborator with a focus on delivering high-quality, user-centric solutions.",
             "lang": ["react", "tailwindcss", "mongodb", "nodejs", "expressjs", "api", "json"],
-            "link": ""
+            "link": "",
+            "summary": "This application is a complex full-stack system that integrates a React front-end with an Express.js back-end. The system is designed for managing sales, leads, charity campaigns, and raffles, with robust user authentication, secure payment handling via Stripe, and email confirmation for account validation. The use of security features like JWT, HMAC, and Stripe ensures a secure and smooth user experience.",
+            "long": ["This full-stack application is designed to provide an intuitive and secure platform for managing sales, leads, and payments. Built with React on the front-end and Express.js on the back-end, the app seamlessly integrates MongoDB for data storage and Stripe for payment processing.",
+                    "Users can easily sign in and access their personalized dashboard, where they can search for leads and view relevant sales data. The app supports dynamic search functionality, allowing users to find specific leads by their supplierCustomerId. If no results are found, users are prompted to add a new supplier, streamlining the process of entering customer information.",
+                    "The payment system within the app handles both one-time and recurring donations, offering flexibility to users. Integration with Stripe ensures secure payment processing, and the app provides clear prompts for payment verification. The system also includes a modal for confirming payment details and updating the user's status once the payment is successfully processed.",
+                    "On the back-end, the app ensures data security with JWT authentication and HMAC signatures, making sure that all actions are performed by authorised users. Admins can easily manage sales, verify data integrity, and receive notifications when new sales are made.",
+                    "This application is built with a focus on both functionality and user experience, providing a secure, seamless, and efficient solution for managing sales, payments, and customer interactions."
+                ]
+
+            
         },
 
         {
             "id": 1,
             "name": "Minetech",
             "company": "CTL Australia",
+            "imgComp": "ctl",
+
             "stack": "REACT and TailwindCSS",
             "position": "Front-End Developer",
             "date": "May 2024",
             "desc": "I was tasked with designing and developing an eCommerce website that handled and displayed JSON data. This website incorporated a cart system, which took in the price of each selected items. This website was responsive, utilising TailwindCSS.",
             "lang": ["react", "tailwindcss", "json", "api"],
-            "link": ""
+            "link": "",
+            "long": ["This full-stack application is designed to provide an intuitive and secure platform for managing sales, leads, and payments. Built with React on the front-end and Express.js on the back-end, the app seamlessly integrates MongoDB for data storage and Stripe for payment processing.",
+                    "Users can easily sign in and access their personalized dashboard, where they can search for leads and view relevant sales data. The app supports dynamic search functionality, allowing users to find specific leads by their supplierCustomerId. If no results are found, users are prompted to add a new supplier, streamlining the process of entering customer information.",
+                    "The payment system within the app handles both one-time and recurring donations, offering flexibility to users. Integration with Stripe ensures secure payment processing, and the app provides clear prompts for payment verification. The system also includes a modal for confirming payment details and updating the user's status once the payment is successfully processed.",
+                    "On the back-end, the app ensures data security with JWT authentication and HMAC signatures, making sure that all actions are performed by authorised users. Admins can easily manage sales, verify data integrity, and receive notifications when new sales are made.",
+                    "This application is built with a focus on both functionality and user experience, providing a secure, seamless, and efficient solution for managing sales, payments, and customer interactions."
+                ]
         },
 
         {
             "id": 2,
             "name": "Autism and Mental Health",
             "company": "Curtin University",
+            "imgComp": "curtin",
             "stack": "HTML, CSS, JS",
             "position": "Digital Designer",
             "date": "March 2023 - August 2023",
             "desc": "Over the course of several months, I meticulously crafted an online course from provided content, utilizing HTML, CSS, and JavaScript to develop an engaging interface. This comprehensive effort paid off when the course received an award, recognizing its excellence in design, content, and interactivity.",
             "lang": ["html", "css", "js"],
-            "link": "https://www.edx.org/learn/mental-health/curtin-university-autism-and-mental-health?irgwc=1"
+            "link": "https://www.edx.org/learn/mental-health/curtin-university-autism-and-mental-health?irgwc=1",
+            "long": ["This full-stack application is designed to provide an intuitive and secure platform for managing sales, leads, and payments. Built with React on the front-end and Express.js on the back-end, the app seamlessly integrates MongoDB for data storage and Stripe for payment processing.",
+                    "Users can easily sign in and access their personalized dashboard, where they can search for leads and view relevant sales data. The app supports dynamic search functionality, allowing users to find specific leads by their supplierCustomerId. If no results are found, users are prompted to add a new supplier, streamlining the process of entering customer information.",
+                    "The payment system within the app handles both one-time and recurring donations, offering flexibility to users. Integration with Stripe ensures secure payment processing, and the app provides clear prompts for payment verification. The system also includes a modal for confirming payment details and updating the user's status once the payment is successfully processed.",
+                    "On the back-end, the app ensures data security with JWT authentication and HMAC signatures, making sure that all actions are performed by authorised users. Admins can easily manage sales, verify data integrity, and receive notifications when new sales are made.",
+                    "This application is built with a focus on both functionality and user experience, providing a secure, seamless, and efficient solution for managing sales, payments, and customer interactions."
+                ]
         },
 
         {
             "id": 3,
             "name": "Curtin Gradshow 2022",
             "company": "Curtin University",
+            "imgComp": "curtinGrad",
             "stack": "Back-End",
             "position": "Back-End Team Lead",
             "date": "August 2022 - November 2022",
             "desc": "As the team lead for a small backend team, I spearheaded the development process, contributing approximately 70% of the backend code myself. Leveraging NodeJS, MongoDB, and AWS S3 buckets for image storage, I crafted a robust backend infrastructure for the website. Additionally, I dedicated extensive hours to supporting both my team and others during the final stages of production, ensuring a successful project completion.",
             "lang": ["nodejs", "mongodb", "aws", "expressjs"],
-            "link": "https://2022.curtindesign.com/"
+            "link": "https://grad-show-frontend-v2-2022.vercel.app/#GradShow",
+            
+            "long": ["This full-stack application is designed to provide an intuitive and secure platform for managing sales, leads, and payments. Built with React on the front-end and Express.js on the back-end, the app seamlessly integrates MongoDB for data storage and Stripe for payment processing.",
+                    "Users can easily sign in and access their personalized dashboard, where they can search for leads and view relevant sales data. The app supports dynamic search functionality, allowing users to find specific leads by their supplierCustomerId. If no results are found, users are prompted to add a new supplier, streamlining the process of entering customer information.",
+                    "The payment system within the app handles both one-time and recurring donations, offering flexibility to users. Integration with Stripe ensures secure payment processing, and the app provides clear prompts for payment verification. The system also includes a modal for confirming payment details and updating the user's status once the payment is successfully processed.",
+                    "On the back-end, the app ensures data security with JWT authentication and HMAC signatures, making sure that all actions are performed by authorised users. Admins can easily manage sales, verify data integrity, and receive notifications when new sales are made.",
+                    "This application is built with a focus on both functionality and user experience, providing a secure, seamless, and efficient solution for managing sales, payments, and customer interactions."
+                ]
         },
 
         {
             "id": 4,
             "name": "Sprout",
             "company": "Curtin University",
+            "imgComp": "curtinSchool",
             "stack": "Back-End",
             "position": "Full-Stack Developer",
             "date": "August 2021 - November 2021",
             "desc": "During my third year of university, a team member and I were tasked with creating a mental health app that encouraged the user to do chores in order to grow their little plant.",
             "lang": ["nodejs", "mongodb", "html", "expressjs", "css", "js"],
-            "link": ""
+            "link": "",
+            "long": ["This full-stack application is designed to provide an intuitive and secure platform for managing sales, leads, and payments. Built with React on the front-end and Express.js on the back-end, the app seamlessly integrates MongoDB for data storage and Stripe for payment processing.",
+                    "Users can easily sign in and access their personalized dashboard, where they can search for leads and view relevant sales data. The app supports dynamic search functionality, allowing users to find specific leads by their supplierCustomerId. If no results are found, users are prompted to add a new supplier, streamlining the process of entering customer information.",
+                    "The payment system within the app handles both one-time and recurring donations, offering flexibility to users. Integration with Stripe ensures secure payment processing, and the app provides clear prompts for payment verification. The system also includes a modal for confirming payment details and updating the user's status once the payment is successfully processed.",
+                    "On the back-end, the app ensures data security with JWT authentication and HMAC signatures, making sure that all actions are performed by authorised users. Admins can easily manage sales, verify data integrity, and receive notifications when new sales are made.",
+                    "This application is built with a focus on both functionality and user experience, providing a secure, seamless, and efficient solution for managing sales, payments, and customer interactions."
+                ]
         }
     ]
 
