@@ -7,20 +7,15 @@
             "company": "Serbius",
             "imgComp": "serbius",
             "stack": "MERN Full-Stack",
+            "filter": "2025-01-20",
             "position": "Full-Stack Developer",
             "date": "July 2024 - Present",
             "desc": "As the only developer, I was tasked with developing a dynamic and responsive web applications using the MERN stack (MongoDB, Express.js, React, Node.js). I got to flex my skills in building RESTful APIs, implementing secure user authentication, managing MongoDB databases, and creating visually appealing interfaces with Tailwind CSS. Skilled in state management with Context API, integrating third-party APIs, and ensuring code quality through testing and version control. Strong collaborator with a focus on delivering high-quality, user-centric solutions.",
             "lang": ["react", "tailwindcss", "mongodb", "nodejs", "expressjs", "api", "json"],
             "link": "",
-            "summary": "This application is a complex full-stack system that integrates a React front-end with an Express.js back-end. The system is designed for managing sales, leads, charity campaigns, and raffles, with robust user authentication, secure payment handling via Stripe, and email confirmation for account validation. The use of security features like JWT, HMAC, and Stripe ensures a secure and smooth user experience.",
-            "long": ["This full-stack application is designed to provide an intuitive and secure platform for managing sales, leads, and payments. Built with React on the front-end and Express.js on the back-end, the app seamlessly integrates MongoDB for data storage and Stripe for payment processing.",
-                    "Users can easily sign in and access their personalized dashboard, where they can search for leads and view relevant sales data. The app supports dynamic search functionality, allowing users to find specific leads by their supplierCustomerId. If no results are found, users are prompted to add a new supplier, streamlining the process of entering customer information.",
-                    "The payment system within the app handles both one-time and recurring donations, offering flexibility to users. Integration with Stripe ensures secure payment processing, and the app provides clear prompts for payment verification. The system also includes a modal for confirming payment details and updating the user's status once the payment is successfully processed.",
-                    "On the back-end, the app ensures data security with JWT authentication and HMAC signatures, making sure that all actions are performed by authorised users. Admins can easily manage sales, verify data integrity, and receive notifications when new sales are made.",
-                    "This application is built with a focus on both functionality and user experience, providing a secure, seamless, and efficient solution for managing sales, payments, and customer interactions."
-                ]
-
-            
+            "summary": "Serbius Submissions is a full-stack web application built with the MERN stack and Tailwind CSS to streamline customer data entry and payment processing. Previously, agents spent five minutes per transaction manually verifying details; this system cuts that time in half, significantly improving efficiency. The application features role-based authentication, ensuring only authorized users can access it, and supports secure, encrypted transactions with HMAC encryption. As the sole developer, I designed, developed, and deployed the entire system, implementing dynamic form handling, secure authentication, and a seamless payment workflow. Since its launch, the application has enhanced productivity, security, and user experience, allowing agents to process transactions faster and more reliably.",   
+            "obj": "Serbius Submissions is a web application designed to streamline the process of collecting customer information, managing payments, and securely storing transaction details in a database. Built specifically for sales agents, its primary goal is to enhance efficiency by automating manual data entry and payment verification. Previously, processing a single transaction took an agent at least five minutes, as they had to manually verify card details, input customer information, and save it as a receipt in the database. With Serbius Submissions, this workflow has been optimized, cutting processing time in half and enabling agents to handle twice as many transactions per day, significantly improving productivity.",
+            "tech": "Serbius Submissions was developed using the MERN stack (MongoDB, Express.js, React, Node.js) with Tailwind CSS to create a fast, responsive, and user-friendly interface. These technologies provided a seamless integration between the frontend and backend while ensuring the application remained scalable and efficient. A key priority was designing an intuitive experience that allowed agents to quickly process transactions with minimal effort, reducing friction in their workflow. As the sole developer, I faced several challenges throughout the development process. One of the biggest hurdles was learning React from scratch, as I needed to leverage features like state management (useState) and component reusability to ensure a dynamic and efficient user experience. Implementing user authentication and role-based access control was another challenge, as I had never integrated authentication in a React-based project before. However, through extensive research, Stack Overflow, and ChatGPT, I successfully implemented secure login functionality and an account-type system, ensuring that only authorized users could access specific parts of the application. One of the standout features of Serbius Submissions is its ease of use—the entire workflow was designed to be as seamless and intuitive as possible. Agents can quickly input customer details, validate transactions, and save sales records with minimal manual effort. Additionally, Stripe integration was incorporated to allow for secure and efficient payment processing, ensuring that transactions are handled smoothly while maintaining high security standards. These features significantly improved efficiency, allowing agents to process transactions faster and more reliably than ever before." 
         },
 
         {
@@ -28,7 +23,7 @@
             "name": "Minetech",
             "company": "CTL Australia",
             "imgComp": "ctl",
-
+            "filter": "2024-05-20",
             "stack": "REACT and TailwindCSS",
             "position": "Front-End Developer",
             "date": "May 2024",
@@ -50,6 +45,7 @@
             "imgComp": "curtin",
             "stack": "HTML, CSS, JS",
             "position": "Digital Designer",
+            "filter": "2023-08-31",
             "date": "March 2023 - August 2023",
             "desc": "Over the course of several months, I meticulously crafted an online course from provided content, utilizing HTML, CSS, and JavaScript to develop an engaging interface. This comprehensive effort paid off when the course received an award, recognizing its excellence in design, content, and interactivity.",
             "lang": ["html", "css", "js"],
@@ -69,6 +65,7 @@
             "imgComp": "curtinGrad",
             "stack": "Back-End",
             "position": "Back-End Team Lead",
+            "filter": "2022-11-25",
             "date": "August 2022 - November 2022",
             "desc": "As the team lead for a small backend team, I spearheaded the development process, contributing approximately 70% of the backend code myself. Leveraging NodeJS, MongoDB, and AWS S3 buckets for image storage, I crafted a robust backend infrastructure for the website. Additionally, I dedicated extensive hours to supporting both my team and others during the final stages of production, ensuring a successful project completion.",
             "lang": ["nodejs", "mongodb", "aws", "expressjs"],
@@ -89,6 +86,7 @@
             "imgComp": "curtinSchool",
             "stack": "Back-End",
             "position": "Full-Stack Developer",
+            "filter": "2021-11-25",
             "date": "August 2021 - November 2021",
             "desc": "During my third year of university, a team member and I were tasked with creating a mental health app that encouraged the user to do chores in order to grow their little plant.",
             "lang": ["nodejs", "mongodb", "html", "expressjs", "css", "js"],

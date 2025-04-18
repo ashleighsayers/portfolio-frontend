@@ -1,5 +1,25 @@
 import { useEffect, useState, useRef } from "react";
 import Nav from "./Nav";
+import emailjs from "emailjs-com";
+import { RiArrowDownWideFill } from "react-icons/ri";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+    
+import { CustomEase } from "gsap/CustomEase";
+import { RoughEase, ExpoScaleEase, SlowMo } from "gsap/EasePack";
+    
+import { Flip } from "gsap/Flip";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Observer } from "gsap/Observer";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { Draggable } from "gsap/Draggable";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { EaselPlugin } from "gsap/EaselPlugin";
+import { PixiPlugin } from "gsap/PixiPlugin";
+import { TextPlugin } from "gsap/TextPlugin";
+
+
+
 import react from "../img/react.svg"
 import node from "../img/nodejs.svg"
 import js from "../img/js.svg"
@@ -11,61 +31,105 @@ import express from "../img/express.svg"
 import rest from "../img/rest.svg"
 import aws from "../img/aws.svg"
 import json from "../img/json.svg"
-import emailjs from "emailjs-com";
-import { RiArrowDropDownLine } from "react-icons/ri";
 import gradshow from '../img/gradshow.png'
-
-import serbius from "../img/serbius.png"
-
-  
-
+import serbius from "../img/serbius.png"  
 
 
 export default function Home() {
+    gsap.registerPlugin(useGSAP,Flip,ScrollTrigger,Observer,ScrollToPlugin,Draggable,MotionPathPlugin,EaselPlugin,PixiPlugin,TextPlugin,RoughEase,ExpoScaleEase,SlowMo,CustomEase);
+
     const [projects, setProjects] = useState([]);
+    const [langs, setLangs] = useState([]);
     const [selected, setSelected] = useState(false);
     const [selectedProject, setSelectedProject] = useState([]);
 
-
     const fetchProjects = () => {
-    fetch('/data.json')
-        .then(response => response.json())
-        .then(data => {
-        console.log('Fetched Data:', data);  // Check if 'product' exists in the data
-        setProjects(data.projects || []);  // Set projects or fallback to an empty array
-        })
-        .catch(error => console.error('Error fetching data:', error));
-    };
+        fetch('/data.json')
+            .then(response => response.json())
+            .then(data => {
+            console.log('Fetched Data:', data);  // Check if 'product' exists in the data
+            setProjects((data.projects || []).sort((a, b) => new Date(b.filter) - new Date(a.filter)));
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        };
+    
+        const fetchLangs = () => {
+            fetch('/langs.json')
+                .then(response => response.json())
+                .then(data => {
+                console.log('Fetched Data:', data);  // Check if 'product' exists in the data
+                setLangs(data.langs);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        };
+        
+        useGSAP(() => {
+            gsap.utils.toArray('.project:nth-child(odd)').forEach((el) => {
+              // Immediately set opacity to 1 on initial render
+          
+              gsap.from(el, {
+                x: 50,
+                opacity: 0,
+                duration: 1.5,
+                scrollTrigger: {
+                  trigger: el,
+                  opacity: 1,
+                  x: 0,
+                  toggleActions: "play none none none", // play animation once when entering
+                }
+              });
+            });
+          
+            gsap.utils.toArray('.project:nth-child(even)').forEach((el) => {
+              // Immediately set opacity to 1 on initial render
+          
+              gsap.from(el, {
+                x: -50,
+                opacity: 0,
+                duration: 1.5,
+                scrollTrigger: {
+                  trigger: el,
+                  opacity: 1,
+                  x: 0,
+                  start: "top 50%", // when the top of el hits 50% of the viewport
+                  toggleActions: "play none none none", // play animation once when entering
+                }
+              });
+            });
+        }, [fetchProjects]);
+          
+          
 
     const form = useRef();
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+    const sendEmail = (e) => {
+        e.preventDefault();
 
-    emailjs.sendForm(
-  process.env.REACT_APP_SERVICE_KEY,  // EmailJS service ID from .env
-  process.env.REACT_APP_TEMPLATE_KEY, // EmailJS template ID from .env
-  form.current,
-  process.env.REACT_APP_USER_KEY      // EmailJS user ID from .env
-)
-    .then((result) => {
-        console.log(result.text);
-        alert('Message sent successfully!');
-    }, (error) => {
-        console.log(error.text);
-        alert('Failed to send message.');
-    });
-  };
+        emailjs.sendForm(
+            process.env.REACT_APP_SERVICE_KEY,  // EmailJS service ID from .env
+            process.env.REACT_APP_TEMPLATE_KEY, // EmailJS template ID from .env
+            form.current,
+            process.env.REACT_APP_USER_KEY      // EmailJS user ID from .env              
+        )
+        .then((result) => {
+            console.log(result.text);
+            alert('Message sent successfully!');
+        }, (error) => {
+            console.log(error.text);
+            alert('Failed to send message.');
+        });
+    };   
 
     useEffect(() => {
     generateStars();
     fetchProjects();
+    fetchLangs()
     }, []);
 
     
       const generateStars = () => {
         const starContainer = document.querySelector('.stars');
-        const numStars = 10; 
+        const numStars = 20; 
         const colors = ['#fff', '#FED8E2', '#E0E9F6', '#FCFDFF', '#FFD7FD']; 
       
         for (let i = 0; i < numStars; i++) {
@@ -108,45 +172,46 @@ export default function Home() {
         console.log(selectedProject)
     }
 
-
+    
       
     return(
-        <div className="h-screen w-screen relative">
+        <div  className="h-full min-w-screen relative " >
             <div className="z-50 relative">
                 <Nav />
             </div>
 
-            <div className="container fixed -z-10 flex flex-col top-0 left-0 overflow-y-scroll  min-w-full h-screen justify-center items-center  bg-gradient-to-b from-slate-950 via-indigo-950  to-pink-900 ">
+            <div className="container fixed -z-10  flex flex-col top-0 left-0 overflow-y-scroll scroll-smooth min-w-full min-h-full justify-center items-center  bg-gradient-to-b from-slate-950 via-indigo-950  to-pink-900 ">
                 <div className="stars"></div>
-            </div>
-
-            <div className="fixed top-0 left-0 min-w-full h-full bg-black bg-opacity-10"></div>
-
-            <div className="min-w-full  h-screen container flex justify-center items-center absolute top-0 left-0">
-                <div className="rounded-full  h-52 w-52 fixed -z-10"></div>
             </div>
 
             <div className="container pl-8 md:pr-40 sm:pr-8 relative flex flex-col  min-w-full gap-1">
 
 
                     
-                    <div className="text-white w-full container text-center flex h-screen  flex-col gap-5 justify-center">
-                        <h1 className="md:text-6xl sm:text-3xl cursive font-bold">Ashleigh Sayers</h1>
-                        <h3 className="md:text-3xl sm:text-xl roboto">A developer with an artist's soul</h3>
+                    <div className="text-white w-full container text-center flex h-screen  flex-col gap-5 content-center items-center justify-center">
+                        <h1 className="md:text-6xl down-animation sm:text-3xl cursive font-bold">Ashleigh Sayers</h1>
+                        <h3 className="md:text-3xl left-animation sm:text-xl roboto">A developer with an artist's soul</h3>
+                        <RiArrowDownWideFill className="text-white up-down-animation text-6xl font-thin text-center"/>
                     </div>
 
                     
 
                     <div className=" container justify-center text-center  flex w-full  ">
-                        <div className="md:w-3/4 sm:w-full bg-slate-200 p-5 py-10 gap-2 container flex flex-col shadow-2xl shadow-gray-900  ">
+                        <div className="md:w-full sm:w-full bg-slate-900  text-white p-5 gap-2 container flex flex-col  ">
                             <h1 className="md:text-4xl sm:text-2xl cursive-bold py-3">Hello, I'm Ashleigh</h1>
                             <p className="roboto-reg md:text-lg sm:text-md">As a designer and developer, I am passionate about <b className="roboto-bold text-pink-800 text-xl">merging creativity </b>  with <b className="roboto-bold text-xl text-pink-800 ">technical precision</b>, crafting experiences that are both visually stunning and functionally robust. With a deep appreciation for elegant design and efficient code, I work tirelessly to create seamless,<b className="roboto-bold text-xl text-pink-800 "> user-friendly web applications.</b>  My journey is fueled by a love for innovation and a penchant for solving complex problems. </p>
                             <p className="roboto-reg md:text-lg sm:text-md"> I'm Ashleigh Sayers, a developer with an artist's soul, always striving to bring a <b className="roboto-bold text-pink-800 text-xl">touch of the extraordinary to the digital world.</b></p>
+                            <div className="flex justify-center md:gap-5 sm:gap-2 m-5">
+                                {langs.map((lang) => (
+                                    <img src={langImages[lang]} alt={lang} className="max-w-10 max-h-10 min-w-5 min-h-5" />
+                                ))}
+                            </div>
+                            
                         </div>
                     </div>
 
-                    {projects.map((project) => (
-                        <div key={project.id} className="project py-10">
+                    {projects.map((project, i) => (
+                        <div key={i} className={`project py-10`}>
                             <div className="md:w-3/5 sm:w-full container  flex flex-col gap-1"> 
                                 <h1 className="sm:text-lg md:text-2xl"><b className="sm:text-xl md:text-3xl">{project.name}</b> | {project.company}</h1>
                                 <h3 className="md:text-xl sm:text-lg roboto text-white"> {project.position} | {project.date} </h3>
@@ -158,14 +223,12 @@ export default function Home() {
                                     {project.lang.map((language) => (
                                         <img src={langImages[language]} alt={language} className="w-10 h-10" />
                                     ))}
-
-
                                     
                                     </div>
 
-                                    <div className=" md:w-1/4  sm:w-full sm:mt-7">
+                                    <div className=" md:w-fit  sm:w-fit ">
                                         {project.link.includes("https://") && (
-                                            <a href={project.link} target="_blank" className="text-lg roboto-bold bg-pink-600 hover:bg-pink-800 text-center min-h-10  text-white p-3 ">CHECK IT OUT</a>
+                                            <a href={project.link} target="_blank" className="text-lg roboto-bold bg-pink-600 hover:bg-pink-800 text-center min-h-10  text-white p-2 ">CHECK IT OUT</a>
                                         )}    
                                     </div>
                                 </div>
@@ -214,10 +277,10 @@ export default function Home() {
                 
                 {selected && (
                     <div className="fixed min-w-full min-h-full bg-black bg-opacity-20 top-0 container flex justify-center flex-col items-center">
-                        <div className="bg-white w-3/4 h-1/2  p-2"> 
+                        <div className="bg-white w-3/4 h-1/2 overflow-scroll p-2"> 
                             <div className="grid grid-cols-3"> 
                                 <div className="p-2 col-span-1"> 
-                                    <img src={companies[selectedProject.imgComp]}/>
+                                    <img src={companies[selectedProject.imgComp]} className="w-full"/>
                                     
                                 </div>
 
@@ -225,17 +288,18 @@ export default function Home() {
                                     <div className="flex flex-col justify-between  h-full"> 
                                         <h1 className="text-2xl font-bold">{selectedProject.name} | <b className="text-pink-500 roboto-bold uppercase">{selectedProject.company}</b></h1>
                                         <h2 className="text-lg font-medium">{selectedProject.stack} | {selectedProject.position}</h2>
-                                        <p className="font-normal font-md">{selectedProject.summary}</p>
+                                        <p className=" font-[5px]">{selectedProject.summary}</p>
                                     </div>
                                     
                                 </div>
 
                                 <div className="p-2 col-span-3 "> 
                                     <div className="flex flex-col justify-between  h-full"> 
-                                       
-                                        <p className="font-light font-md">{selectedProject.long.map((para) => (
-                                            <p className="py-1 font-normal">{para} </p>
-                                        ))}</p>
+                                        <p>{selectedProject.obj}</p> <br/>
+                                        <p>{selectedProject.tech}</p>
+                                        {/* {selectedProject.tech.map((para) => (
+                                            <p> <br/> {para} </p>
+                                        ))} */}
                                     </div>
                                     
                                 </div>

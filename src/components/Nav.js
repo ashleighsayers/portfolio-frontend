@@ -1,7 +1,6 @@
-import seek from "../img/seek.svg"
-import linkedin from "../img/linkedin.svg"
-import resume from "../img/resume.svg"
+
 import { useState } from "react"
+import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
 
 
 
@@ -13,7 +12,7 @@ export default function Nav(){
     }
 
     return(
-        <div className="min-w-full ">
+        <div className="">
             <button onClick={nav} className=" container sm:flex md:hidden fixed flex-col gap-1 right-1 justify-center items-end h-min w-min top-3">
                 <div className="bg-pink-500  w-5 h-1"></div>
                 <div className="bg-pink-500  w-5 h-1"></div>
@@ -31,23 +30,22 @@ export default function Nav(){
             </button>
             </div>
 
-            <div className="container flex flex-col gap-5 items-center">
-            <a rel="noreferrer" href="https://1drv.ms/b/s!AsK-Dd9CRgUnneNkK35Jf0VIwt-aDw?e=j2TLot" download="Ashleigh Sayers Resume" target="_blank"  className="w-12 h-12 "><img src={resume}/></a>
-            <a rel="noreferrer" href="https://www.linkedin.com/in/ashleigh-sayers" target="_blank"  className="w-10 h-10 "><img src={linkedin}/></a>
-            <a rel="noreferrer" href="https://www.seek.com.au/profile/ashleigh-sayers-7P2qZdrt3S" target="_blank" className="w-10 h-10"><img src={seek} /></a>
+            <div className="container  flex flex-col gap-5 items-center">
+            <a rel="noreferrer" href="https://1drv.ms/b/c/27054642df0dbec2/ET8tBMpzw6RCirE6n2dZ4aABMOP3ZreT0klaqls7lbzGYw?e=Nq4tid" download="Ashleigh Sayers Resume APR25" target="_blank"  className="w-12 h-12 "><FaFileAlt className="w-10 h-10 text-white"/></a>
+            <a rel="noreferrer" href="https://www.linkedin.com/in/ashleigh-sayers" target="_blank"  className="w-10 h-10 "><FaLinkedin className="w-10 h-10 text-white"/></a>
+            <a rel="noreferrer" href="https://github.com/ashleighsayers" target="_blank" className="w-10 h-10"><FaGithub className="w-10 h-10 text-white"/></a>
             </div>
 
-            
         </div>
         )}
 
-        <div className="h-full  container md:flex sm:hidden flex-col justify-end items-center p-5 w-32 bg-gray-900  right-0 fixed  top-0">
+        <div className="h-screen  container md:flex sm:hidden flex-col justify-end items-center p-5 w-32 bg-gray-900  right-0 fixed  top-0">
             
 
             <div className="container flex flex-col gap-5 items-center">
-            <a rel="noreferrer" href="https://1drv.ms/b/s!AsK-Dd9CRgUnneNkK35Jf0VIwt-aDw?e=j2TLot" download="Ashleigh Sayers Resume" target="_blank"  className="w-12 h-12 "><img src={resume}/></a>
-            <a rel="noreferrer" href="https://www.linkedin.com/in/ashleigh-sayers" target="_blank"  className="w-10 h-10 "><img src={linkedin}/></a>
-            <a rel="noreferrer" href="https://www.seek.com.au/profile/ashleigh-sayers-7P2qZdrt3S" target="_blank" className="w-10 h-10"><img src={seek} /></a>
+            <a rel="noreferrer" href="https://1drv.ms/b/c/27054642df0dbec2/ET8tBMpzw6RCirE6n2dZ4aABMOP3ZreT0klaqls7lbzGYw?e=Nq4tid" download="Ashleigh Sayers Resume" target="_blank"  className="w-12 h-12 "><FaFileAlt className="w-10 h-10 text-white"/></a>
+            <a rel="noreferrer" href="https://www.linkedin.com/in/ashleigh-sayers" target="_blank"  className="w-10 h-10 "><FaLinkedin className="w-10 h-10 text-white"/></a>
+            <a rel="noreferrer" href="https://github.com/ashleighsayers" target="_blank" className="w-10 h-10"><FaGithub className="w-10 h-10 text-white"/></a>
 
             
 

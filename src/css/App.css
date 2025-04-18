@@ -195,3 +195,69 @@ body {
 .img {
   filter: brightness(0) saturate(100%) invert(1);
 }
+
+/* Animations __________________________________________ */
+@keyframes down-sweep {
+  from {
+    top: -50px;
+    opacity: 0;
+  }
+  to{
+    top: 0px;
+    opacity: 100%;
+  }
+}
+
+@keyframes side-sweep{
+  0% {
+    left: -50px;
+    opacity: 0;
+  }
+  20% {
+    left: -50px;
+    opacity: 0%;
+  }
+  100%{
+    left: 0;
+    opacity: 100%;
+  }
+}
+
+@keyframes up-down{
+  0%{
+    top: -10px;
+    opacity: 0;
+  }
+  50%{
+    top: 0;
+    opacity: 100%;
+  }
+  100%{
+    top: -9px;
+    opacity: 1%;
+  }
+}
+
+.down-animation {
+  top: 0px;
+  opacity: 100%;
+  position: relative;
+  animation-name: down-sweep;
+  animation-duration: 1.5s;
+}
+
+.left-animation{
+  left: 0;
+  opacity: 100%;
+  position: relative;
+  animation-name: side-sweep;
+  animation-duration: 1.5s;
+}
+
+.up-down-animation{
+  top: 0;
+  position: relative;
+  animation-name: up-down;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
