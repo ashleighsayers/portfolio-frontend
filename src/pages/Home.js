@@ -67,7 +67,7 @@ export default function Home() {
             
             gsap.utils.toArray('.project:nth-child(odd)').forEach((el) => {
               gsap.from(el, {
-                x: 50,
+                x: 20,
                 opacity: 0,
                 duration: 1.5,
                 scrollTrigger: {
@@ -82,7 +82,7 @@ export default function Home() {
         
             gsap.utils.toArray('.project:nth-child(even)').forEach((el) => {          
               gsap.from(el, {
-                x: -50,
+                x: -20,
                 opacity: 0,
                 duration: 1.5,
                 scrollTrigger: {
