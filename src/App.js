@@ -1,13 +1,14 @@
-import logo from './logo.svg';
 import './css/App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './pages/Home';
+import ReadMore from './pages/ReadMore';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" Component={Home}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/read-more/:projectName" element={<ReadMore />} />
       </Routes>
     </BrowserRouter>
   );

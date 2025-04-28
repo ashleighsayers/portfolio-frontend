@@ -1,13 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 import Nav from "./Nav";
+import ReadMore from "./ReadMore";
 import emailjs from "emailjs-com";
 import { RiArrowDownWideFill } from "react-icons/ri";
 import { gsap } from "gsap";
+import { useNavigate } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
-    
 import { CustomEase } from "gsap/CustomEase";
 import { RoughEase, ExpoScaleEase, SlowMo } from "gsap/EasePack";
-    
 import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Observer } from "gsap/Observer";
@@ -42,12 +42,12 @@ export default function Home() {
     const [langs, setLangs] = useState([]);
     const [selected, setSelected] = useState(false);
     const [selectedProject, setSelectedProject] = useState([]);
+    const navigate = useNavigate();
 
     const fetchProjects = () => {
         fetch('/data.json')
             .then(response => response.json())
             .then(data => {
-            console.log('Fetched Data:', data);  // Check if 'product' exists in the data
             setProjects((data.projects || []).sort((a, b) => new Date(b.filter) - new Date(a.filter)));
             })
             .catch(error => console.error('Error fetching data:', error));
@@ -57,16 +57,15 @@ export default function Home() {
             fetch('/langs.json')
                 .then(response => response.json())
                 .then(data => {
-                console.log('Fetched Data:', data);  // Check if 'product' exists in the data
                 setLangs(data.langs);
                 })
                 .catch(error => console.error('Error fetching data:', error));
         };
         
+        
         useGSAP(() => {
+            
             gsap.utils.toArray('.project:nth-child(odd)').forEach((el) => {
-              // Immediately set opacity to 1 on initial render
-          
               gsap.from(el, {
                 x: 50,
                 opacity: 0,
@@ -75,14 +74,13 @@ export default function Home() {
                   trigger: el,
                   opacity: 1,
                   x: 0,
-                  toggleActions: "play none none none", // play animation once when entering
+                  start: "top 80%",
+                  toggleActions: "play none none reset",
                 }
               });
             });
-          
-            gsap.utils.toArray('.project:nth-child(even)').forEach((el) => {
-              // Immediately set opacity to 1 on initial render
-          
+        
+            gsap.utils.toArray('.project:nth-child(even)').forEach((el) => {          
               gsap.from(el, {
                 x: -50,
                 opacity: 0,
@@ -91,12 +89,18 @@ export default function Home() {
                   trigger: el,
                   opacity: 1,
                   x: 0,
-                  start: "top 50%", // when the top of el hits 50% of the viewport
-                  toggleActions: "play none none none", // play animation once when entering
+                  start: "top 80%",
+                  toggleActions: "play none none reset",
                 }
               });
             });
-        }, [fetchProjects]);
+
+            // 💥 Important: force ScrollTrigger to recalculate layout after a short delay
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 100); // tweak the delay if needed
+        }, [projects]);
+        
           
           
 
@@ -129,7 +133,7 @@ export default function Home() {
     
       const generateStars = () => {
         const starContainer = document.querySelector('.stars');
-        const numStars = 20; 
+        const numStars = 23; 
         const colors = ['#fff', '#FED8E2', '#E0E9F6', '#FCFDFF', '#FFD7FD']; 
       
         for (let i = 0; i < numStars; i++) {
@@ -158,7 +162,7 @@ export default function Home() {
         json,
         tailwindcss: tailwind,
         aws
-      };
+    };
 
     const companies = {
         serbius,
@@ -168,8 +172,6 @@ export default function Home() {
     
     const selectiveProject = (project) => {
         setSelectedProject(project)
-        setSelected(!selected)
-        console.log(selectedProject)
     }
 
     
@@ -189,7 +191,7 @@ export default function Home() {
 
                     
                     <div className="text-white w-full container text-center flex h-screen  flex-col gap-5 content-center items-center justify-center">
-                        <h1 className="md:text-6xl down-animation sm:text-3xl cursive font-bold">Ashleigh Sayers</h1>
+                        <h1 className="md:text-6xl down-animation sm:text-3xl scaling-animation cursive font-bold">Ashleigh Sayers</h1>
                         <h3 className="md:text-3xl left-animation sm:text-xl roboto">A developer with an artist's soul</h3>
                         <RiArrowDownWideFill className="text-white up-down-animation text-6xl font-thin text-center"/>
                     </div>
@@ -202,8 +204,8 @@ export default function Home() {
                             <p className="roboto-reg md:text-lg sm:text-md">As a designer and developer, I am passionate about <b className="roboto-bold text-pink-800 text-xl">merging creativity </b>  with <b className="roboto-bold text-xl text-pink-800 ">technical precision</b>, crafting experiences that are both visually stunning and functionally robust. With a deep appreciation for elegant design and efficient code, I work tirelessly to create seamless,<b className="roboto-bold text-xl text-pink-800 "> user-friendly web applications.</b>  My journey is fueled by a love for innovation and a penchant for solving complex problems. </p>
                             <p className="roboto-reg md:text-lg sm:text-md"> I'm Ashleigh Sayers, a developer with an artist's soul, always striving to bring a <b className="roboto-bold text-pink-800 text-xl">touch of the extraordinary to the digital world.</b></p>
                             <div className="flex justify-center md:gap-5 sm:gap-2 m-5">
-                                {langs.map((lang) => (
-                                    <img src={langImages[lang]} alt={lang} className="max-w-10 max-h-10 min-w-5 min-h-5" />
+                                {langs.map((lang, i) => (
+                                    <img key={i} src={langImages[lang]} alt={lang} className="max-w-10 max-h-10 min-w-5 min-h-5" />
                                 ))}
                             </div>
                             
@@ -212,23 +214,26 @@ export default function Home() {
 
                     {projects.map((project, i) => (
                         <div key={i} className={`project py-10`}>
-                            <div className="md:w-3/5 sm:w-full container  flex flex-col gap-1"> 
+                            <div className="md:w-4/5 sm:w-full container  flex flex-col gap-1"> 
                                 <h1 className="sm:text-lg md:text-2xl"><b className="sm:text-xl md:text-3xl">{project.name}</b> | {project.company}</h1>
                                 <h3 className="md:text-xl sm:text-lg roboto text-white"> {project.position} | {project.date} </h3>
-                                <p className="md:text-lg sm:text-md roboto-reg text-white inline"> {project.desc} <button onClick={() => selectiveProject(project)} className="text-pink-400 font-bold">...read more</button></p>
+                                <p className="md:text-lg sm:text-md roboto-reg text-white inline"> {project.desc} {/*} <a href={`/read-more/${project.name.toLowerCase().replace(/\s+/g, "-")}`} target="_blank" rel="noreferrer" onClick={() => selectiveProject(project)}  className="text-pink-400 font-bold">...read more</a>{*/}</p>
 
-                                <div className="container flex md:flex-row sm:flex-col md:justify-between sm:justify-center md:gap-5  mt-3">
-                                    <div className="flex container md:justify-normal md:w-1/2 sm:w-full sm:justify-between md:gap-4 ">
+                                <div className="container flex md:flex-row sm:flex-col md:justify-between sm:justify-center md:gap-5 gap-5 mt-3">
+                                    <div className="flex container md:flex-row sm:flex-col md:justify-normal md:w-1/2 sm:w-full sm:justify-between md:gap-4 sm:gap-5">
 
-                                    {project.lang.map((language) => (
-                                        <img src={langImages[language]} alt={language} className="w-10 h-10" />
-                                    ))}
+                                    <div className="flex flex-row gap-4 sm:w-full sm:justify-center md:justify-start"> 
+                                        {project.lang.map((language, i) => (
+                                            <img key={i} src={langImages[language]} alt={language} className="w-10 h-10" />
+                                        ))}
+                                    </div>
+                                    
                                     
                                     </div>
 
-                                    <div className=" md:w-fit  sm:w-fit ">
+                                    <div className=" md:w-fit  sm:w-full  flex sm:justify-center">
                                         {project.link.includes("https://") && (
-                                            <a href={project.link} target="_blank" className="text-lg roboto-bold bg-pink-600 hover:bg-pink-800 text-center min-h-10  text-white p-2 ">CHECK IT OUT</a>
+                                            <a href={project.link} rel="noreferrer" target="_blank" className="text-lg roboto-bold bg-pink-600 hover:bg-pink-800 text-center min-h-10  text-white p-2 ">CHECK IT OUT</a>
                                         )}    
                                     </div>
                                 </div>
@@ -270,48 +275,9 @@ export default function Home() {
                     </div>
                     
                     <div>
-                        <p className="text-center text-white py-5">Copyright © 2024 ARSayers. v2.0</p>
+                        <p className="text-center text-white py-5">Copyright © 2025 ARSayers. v2.0</p>
                     </div>
                 </div>
-
-                
-                {selected && (
-                    <div className="fixed min-w-full min-h-full bg-black bg-opacity-20 top-0 container flex justify-center flex-col items-center">
-                        <div className="bg-white w-3/4 h-1/2 overflow-scroll p-2"> 
-                            <div className="grid grid-cols-3"> 
-                                <div className="p-2 col-span-1"> 
-                                    <img src={companies[selectedProject.imgComp]} className="w-full"/>
-                                    
-                                </div>
-
-                                <div className="p-2 col-span-2 "> 
-                                    <div className="flex flex-col justify-between  h-full"> 
-                                        <h1 className="text-2xl font-bold">{selectedProject.name} | <b className="text-pink-500 roboto-bold uppercase">{selectedProject.company}</b></h1>
-                                        <h2 className="text-lg font-medium">{selectedProject.stack} | {selectedProject.position}</h2>
-                                        <p className=" font-[5px]">{selectedProject.summary}</p>
-                                    </div>
-                                    
-                                </div>
-
-                                <div className="p-2 col-span-3 "> 
-                                    <div className="flex flex-col justify-between  h-full"> 
-                                        <p>{selectedProject.obj}</p> <br/>
-                                        <p>{selectedProject.tech}</p>
-                                        {/* {selectedProject.tech.map((para) => (
-                                            <p> <br/> {para} </p>
-                                        ))} */}
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-
-                            <button className="text-red-500 font-bold p-2" onClick={() => setSelected(!selected)}>close</button>
-                        </div>
-
-                        
-                    </div>
-                )}
             
         </div>
     )

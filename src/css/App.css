@@ -238,12 +238,15 @@ body {
   }
 }
 
+
+
 .down-animation {
   top: 0px;
   opacity: 100%;
   position: relative;
   animation-name: down-sweep;
   animation-duration: 1.5s;
+  
 }
 
 .left-animation{
